@@ -28,6 +28,10 @@ h1 {
     padding: 20px 40px;
 }
 
+.mail-box:hover {
+    background-color:#DADADA;
+}
+
 .mail-image img {
     width:60px;
     height:60px;
