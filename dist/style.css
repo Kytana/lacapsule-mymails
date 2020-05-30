@@ -19,14 +19,39 @@ h1 {
     margin:30px 0px;
 }
 
-.mail-box {
+.mail-box, .mail-counter, .mail-add {
     display:flex;
     align-items:center;
     width:60vw;
     background-color:#FFFFFF;
     border: 1px solid #DADADA;
+    border-bottom:none;
     padding: 20px 40px;
 }
+.mail-box:last-child, .mail-counter:last-child, .mail-add:last-child {
+    border-bottom: 1px solid #DADADA;
+}
+
+.mail-add input {
+    padding:10px;
+    border: 1px solid #DADADA;
+    width:90%;
+    margin-right:10px;
+}
+
+.mail-add button {
+    padding:10px;
+    background-color:#fff;
+    color: #03b1fc;
+    border: 1px solid #03b1fc;
+    border-radius:5px;
+}
+
+.mail-add button:hover {
+    background-color:#03b1fc;
+    color: #fff;
+}
+
 
 .mail-box:hover {
     background-color:#DADADA;
