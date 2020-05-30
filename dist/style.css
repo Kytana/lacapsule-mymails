@@ -19,6 +19,14 @@ h1 {
     margin:30px 0px;
 }
 
+#counter{
+    font-weight:700;
+    margin-left:10px;
+    padding:5px 15px;
+    border-radius:50%;
+    background-color:#F5F6FA;
+}
+
 .mail-box, .mail-counter, .mail-add {
     display:flex;
     align-items:center;
@@ -66,6 +74,7 @@ h1 {
 
 .mail-content {
     padding: 0px 20px;
+    width:80%;
 }
 
 .mail-content h6 {
