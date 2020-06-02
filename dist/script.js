@@ -1,37 +1,29 @@
-//Mettre à jour le compteur de mail
+//****** Mettre à jour le compteur de mail
 var mailBox = document.getElementsByClassName('mail-box');  
-var mailCount = 0;
-for(var i = 0; i < mailBox.length; i++) {
-    mailCount++;
-}
-document.getElementById('counter').textContent = mailCount;
+document.getElementById('counter').textContent = mailBox.length;
 
 
-//Supprimer un message
-var deleteButton = document.getElementsByClassName('btn-delete');
-for(var i=0; i < deleteButton.length; i++) {
-        deleteButton[i].addEventListener('click', function() {
+//********* Supprimer un message
+for(var i=0; i < mailBox.length; i++) {
+    document.getElementsByClassName('btn-delete')[i].addEventListener('click', function() {
             this.parentNode.remove();
-        }
-
-
-
-        
+            document.getElementById('counter').textContent = mailBox.length;
+        }       
     );
 }
 
 
-//Supprimer un message
-
+//******** Base de donnée utilisateur
 var newMail = {
-    avatar: "img/avatar-2.jpg",
+    avatar: "img/tahina-aid.jpg",
     name: "Tahina Aid",
 }
 
-var inputValue = document.getElementById("mail-input").value;
 
-var addMail = document.getElementById('add');
-addMail.addEventListener('click', function() {
+
+
+//******** Publier un nouveau message
+document.getElementById('add').addEventListener('click', function() {
 
     // Créer une div "mail-box"
         var newMailBox = document.createElement("div");  
@@ -43,8 +35,8 @@ addMail.addEventListener('click', function() {
         newMailBox.appendChild(newImage); 
 
     //Créer l'avatar
-        var newAvatar = document.createElement("img");  
-        newAvatar.innerHTML = '<img src="'+ newMail.avatar + '">';
+        var newAvatar = document.createElement("img"); 
+        newAvatar.setAttribute("src", newMail.avatar);  
         newImage.appendChild(newAvatar); 
 
     //Créer une div "mail-content"
@@ -60,6 +52,7 @@ addMail.addEventListener('click', function() {
     
     //Créer le message
         var newMessage = document.createElement("p");
+        var inputValue = document.getElementById("mail-input").value;
         var authorMessage = document.createTextNode(inputValue);  
         newMessage.appendChild(authorMessage); 
         newContent.appendChild(newMessage); 
@@ -71,8 +64,22 @@ addMail.addEventListener('click', function() {
         deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
         newMailBox.appendChild(deleteBtn); 
 
-    //Placer le mail en première position
         var mailList = document.getElementById('mail-list');    // Get the <ul> element to insert a new node
-        mailList.insertBefore(newMailBox, mailList.childNodes[0]);         
+        mailList.insertBefore(newMailBox, mailList.childNodes[0]);  
+    
+    //Mise à jour compteur
+        document.getElementById('counter').textContent = mailBox.length;
+
+    //********* Supprimer un message
+        for(var i=0; i < mailBox.length; i++) {
+            document.getElementsByClassName('btn-delete')[i].addEventListener('click', function() {
+                    this.parentNode.remove();
+                    document.getElementById('counter').textContent = mailBox.length;
+                }       
+            );
+        }
     }
+
+    
 );
+
